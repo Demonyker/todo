@@ -1,4 +1,5 @@
 tags = [];
+// создаем готовый массив объектов
 Stroka = [
 {
   priority:"A",
@@ -25,13 +26,15 @@ Stroka = [
   date: new Date(2019, 3, 23)
 }
 ];
-
+//Создаем класс который будет работать со строками
 class Todo{
+//Фильтр который выводит строки только с определенным приоритетом
 filterByType(arr, typeP){
 return arr.filter(function(arr){
 return arr.priority === typeP
 });
 }
+//Два метода которые сортируют строки либо по приоритету, либо по дате
 sortirovkaByP(arr){
  console.log( arr.sort(function (a, b) {
  if (a.priority > b.priority) {
@@ -56,14 +59,18 @@ return -1;
  return 0;
 }),)
 }
-statistick(arr, type, znach){
-  var k = 0;
-  for( i = 0; i < arr.lenght; i++){
-    if(arr[i].type == znach){
-      k = k + 1;
-    }
-  }
-  console.log('Значение ' + type + znach + 'встречается' + k + 'раз')
+//Метод который добавляет строку
+addElem(arr, priority, tags, text, date){
+ arr.push({
+   priority: priority,
+   tags: tags,
+   text: text,
+   date: date
+ });
+}
+//Метод который удаляет строку
+deleteElem(arr, i){
+ delete arr[i];
 }
 }
 var todolist = new Todo();
