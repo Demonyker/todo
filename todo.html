@@ -4,66 +4,45 @@
     <meta charset="utf-8">
     <title>Hello, world!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="css\master.css">
   </head>
   <body>
     <script type="text/javascript">
-    Stroka = []; // объявление массива
     tags = [];
-    Stroka[0] = {
+    Stroka = [
+    {
       priority:"A",
       tags:["job", "important", "money"],
       text:"Create a to do list on javascrpit",
-      date: new Date(2019, 3, 24)
-    }
-    Stroka[1] = {
+      date: new Date(2019, 3, 25)
+    },
+  {
       priority:"B",
       tags: ["breakfest", "food"],
       text:"Visit a McDonalds",
       date: new Date(2019, 3, 24)
-    }
-    Stroka[2] = {
+    },
+   {
       priority:"A",
       tags: ["science", "study", "institute"],
       text:"Do homework",
-      date: new Date(2019, 3, 24)
+      date: new Date(2019, 3, 22)
     }
-    Stroka[3] = {
+    ,{
       priority:"B",
       tags: ["study", "institute"],
       text:"attend a lecture",
-      date: new Date(2019, 3, 25)
+      date: new Date(2019, 3, 23)
     }
+  ];
 
     class Todo{
-      constructor(priority, tags, text, date){
-        this.priority = priority;
-        this.tags = tags;
-        this.text = text;
-        this.date = date;
-      }
-    filterByA(Stroks){
-      function filterByP1(Stroks){
-       if (Stroks.priority == "A") {
-        return true;
-      }else
-       return false;
-     }
-      var arrByP = Stroks.filter(filterByP1);
-      console.log(arrByP);
+    filterByType(arr, typeP){
+    return arr.filter(function(arr){
+    return arr.priority === typeP
+    });
     }
-    filterByB(Stroks){
-      function filterByP2(Stroks){
-       if (Stroks.priority == "B") {
-        return true;
-      }else
-       return false;
-     }
-      var arrByP = Stroks.filter(filterByP2);
-      console.log(arrByP);
-    }
-    sortirovka(Stroks){
-     console.log( Stroks.sort(function (a, b) {
+    sortirovkaByP(arr){
+     console.log( arr.sort(function (a, b) {
      if (a.priority > b.priority) {
     return 1;
       }
@@ -73,12 +52,32 @@
 
      return 0;
     }),)
+  }
+    sortirovkaByD(arr){
+     console.log( arr.sort(function (a, b) {
+     if (a.date > b.date) {
+    return 1;
+      }
+      if (a.date < b.date) {
+    return -1;
+       }
+
+     return 0;
+    }),)
+    }
+    statistick(arr, type, znach){
+    var k;
+    arr.reduce(function(type, znach){
+      if (type == znach){
+        return k + 1;
+      }
+    }, 0)
+    console.log(k);
     }
     }
-   var Stroks = new Todo(Stroka.priority, Stroka.tags, Stroka.text, Stroka.date);
-   console.log(Stroks.filterByA(Stroka));
-   console.log(Stroks.filterByB(Stroka));
-   console.log(Stroks.sortirovka(Stroka));
+    var todolist = new Todo();
+    console.log (todolist.statistick(Stroka, Stroka.priority, 'A'));
+
 
 
     </script>
