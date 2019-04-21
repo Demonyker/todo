@@ -1,31 +1,35 @@
-tags = [];
 // создаем готовый массив объектов
 Stroka = [
 {
   priority:"A",
   tags:["job", "important", "money"],
   text:"Create a to do list on javascrpit",
-  date: new Date(2019, 3, 25)
+  date: new Date(2019, 3, 25),
+  num: 1
 },
 {
   priority:"B",
   tags: ["breakfest", "food"],
   text:"Visit a McDonalds",
-  date: new Date(2019, 3, 24)
+  date: new Date(2019, 3, 24),
+  num: 2
 },
 {
   priority:"A",
   tags: ["science", "study", "institute"],
-  text:"Do homework",
-  date: new Date(2019, 3, 22)
+  text:"attend a lecture",
+  date: new Date(2019, 3, 22),
+  num: 3
 }
 ,{
   priority:"B",
   tags: ["study", "institute"],
   text:"attend a lecture",
-  date: new Date(2019, 3, 23)
+  date: new Date(2019, 3, 23),
+  num: 4
 }
 ];
+ var sum = 0;
 //Создаем класс который будет работать со строками
 class Todo{
 //Фильтр который выводит строки только с определенным приоритетом
@@ -73,14 +77,14 @@ addElem(arr, priority, tags, text, date){
 deleteElem(arr, i){
  delete arr[i];
 }
-statistic(arr, item){
-  let sum = 0;
-  arr.forEach((item){
-    if(item === 'A'){
-      sum += item;
-    }
-  });
-console.log(sum);
-}
+//Метод который выводит статистику того или иного значения строки
+statistic(arr, type, znach){
+arr.forEach(function(item){
+      if(item[type] === znach){
+         sum=sum+1;
+      }
+    });
+  console.log(sum);
+  }
 }
 var todolist = new Todo();
