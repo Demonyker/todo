@@ -38,32 +38,20 @@ return arr.filter(function(arr){
 return arr.priority === typeP
 });
 }
-//Два метода которые сортируют строки либо по приоритету, либо по дате
-//Их можно объединить в один, но так как у нас сортировка пока актуальна только по этим данным, я оставил так
-sortirovkaByP(arr){
+//Метод который сортирует строки либо по заданному типу(в нашем случае либо по приоритету, либо по дате)
+sortirovka(arr, type){
  console.log( arr.sort(function (a, b) {
- if (a.priority > b.priority) {
+ if (a[type] > b[type]) {
 return 1;
   }
-  if (a.priority < b.priority) {
+  if (a[type] < b[type]) {
 return -1;
    }
 
  return 0;
 }),)
 }
-sortirovkaByD(arr){
- console.log( arr.sort(function (a, b) {
- if (a.date > b.date) {
-return 1;
-  }
-  if (a.date < b.date) {
-return -1;
-   }
 
- return 0;
-}),)
-}
 //Метод который добавляет строку
 addElem(arr, priority, tags, text, date){
  arr.push({

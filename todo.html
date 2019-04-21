@@ -10,8 +10,8 @@
      <script>
        //Проверка работоспособности методов, запускать по одному, для правильной работы
        console.log(todolist.filterByType(Stroka, 'A'));
-       todolist.sortirovkaByP(Stroka);
-       todolist.sortirovkaByD(Stroka);
+       todolist.sortirovka(Stroka, 'priority');
+       todolist.sortirovka(Stroka, 'date');
        todolist.addElem(Stroka, 'A', ['study', 'work'], 'test'); console.log(Stroka[4]);
        todolist.deleteElem(Stroka, 1); console.log(Stroka[1]);
        todolist.statistic(Stroka, 'priority', 'A');
