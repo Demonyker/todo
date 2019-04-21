@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Hello, world!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="todo.js"></script>
   </head>
   <body>
      <script>
@@ -37,6 +36,7 @@
          date: new Date(2019, 3, 23)
        }
        ];
+        var sum = 0;
        //Создаем класс который будет работать со строками
        class Todo{
        //Фильтр который выводит строки только с определенным приоритетом
@@ -85,24 +85,25 @@
         delete arr[i];
        }
        statistic(arr, item){
-         let sum = 0;
          arr.forEach(function(item){
-           if(item === znach){
-             sum = sum + 1;
-           }
-         });
-       console.log(sum);
-       // пробовал двумя разными методами, оба либо выводят 0, либо undefinend
-       const sum = arr.reduce(function(sum, item){
+           if(item === 'A'){
+            return sum = sum + 1;
+          }
+         } );
+       return sum;
+       //Чувак я попытался поставить везде ретюрны, объявить переменную до класса
+       //но он все равно не считает и выводит sum который был при объявлении
+       //либо 0, либо undefined
+      arr.reduce(function(sum, item){
          if (item === 'A'){
            return sum = sum + 1;
-         }
+         } return sum;
        },0)
-       console.log(sum);
+       return sum;
        }
        }
        var todolist = new Todo();
-       todolist.statistic(Stroka, Stroka.priority);
+       console.log(todolist.statistic(Stroka, Stroka.priority));
 
      </script>
   </body>
