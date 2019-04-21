@@ -38,7 +38,7 @@ return arr.filter(function(arr){
 return arr.priority === typeP
 });
 }
-//Метод который сортирует строки либо по заданному типу(в нашем случае либо по приоритету, либо по дате)
+//Метод который сортирует строки по заданному типу(в нашем случае либо по приоритету, либо по дате)
 sortirovka(arr, type){
  console.log( arr.sort(function (a, b) {
  if (a[type] > b[type]) {
