@@ -72,5 +72,14 @@ addElem(arr, priority, tags, text, date){
 deleteElem(arr, i){
  delete arr[i];
 }
+statistic(arr, item){
+  let sum = 0;
+  arr.forEach((item){
+    if(item === 'A'){
+      sum += item;
+    }
+  });
+console.log(sum);
+}
 }
 var todolist = new Todo();

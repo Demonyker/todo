@@ -9,11 +9,99 @@
   <body>
      <script>
        //Првоеряем работу методов, запускать по одному лучше
-       console.log(todolist.filterByType(Stroka, 'A'));
-       todolist.sortirovkaByP(Stroka);
-       todolist.sortirovkaByD(Stroka);
-       todolist.addElem(Stroka, 'A', ['study','domashka'], 'do a homework');
-       todolist.deleteElem(Stroka, 3);
+       tags = [];
+       // создаем готовый массив объектов
+       Stroka = [
+       {
+         priority:"A",
+         tags:["job", "important", "money"],
+         text:"Create a to do list on javascrpit",
+         date: new Date(2019, 3, 25)
+       },
+       {
+         priority:"B",
+         tags: ["breakfest", "food"],
+         text:"Visit a McDonalds",
+         date: new Date(2019, 3, 24)
+       },
+       {
+         priority:"A",
+         tags: ["science", "study", "institute"],
+         text:"Do homework",
+         date: new Date(2019, 3, 22)
+       }
+       ,{
+         priority:"B",
+         tags: ["study", "institute"],
+         text:"attend a lecture",
+         date: new Date(2019, 3, 23)
+       }
+       ];
+       //Создаем класс который будет работать со строками
+       class Todo{
+       //Фильтр который выводит строки только с определенным приоритетом
+       filterByType(arr, typeP){
+       return arr.filter(function(arr){
+       return arr.priority === typeP
+       });
+       }
+       //Два метода которые сортируют строки либо по приоритету, либо по дате
+       sortirovkaByP(arr){
+        console.log( arr.sort(function (a, b) {
+        if (a.priority > b.priority) {
+       return 1;
+         }
+         if (a.priority < b.priority) {
+       return -1;
+          }
+
+        return 0;
+       }),)
+       }
+       sortirovkaByD(arr){
+        console.log( arr.sort(function (a, b) {
+        if (a.date > b.date) {
+       return 1;
+         }
+         if (a.date < b.date) {
+       return -1;
+          }
+
+        return 0;
+       }),)
+       }
+       //Метод который добавляет строку
+       addElem(arr, priority, tags, text, date){
+        arr.push({
+          priority: priority,
+          tags: tags,
+          text: text,
+          date: date
+        });
+       }
+       //Метод который удаляет строку
+       deleteElem(arr, i){
+        delete arr[i];
+       }
+       statistic(arr, item){
+         let sum = 0;
+         arr.forEach(function(item){
+           if(item === znach){
+             sum = sum + 1;
+           }
+         });
+       console.log(sum);
+       // пробовал двумя разными методами, оба либо выводят 0, либо undefinend 
+       const sum = arr.reduce(function(sum, item){
+         if (item === 'A'){
+           return sum = sum + 1;
+         }
+       },0)
+       console.log(sum);
+       }
+       }
+       var todolist = new Todo();
+       todolist.statistic(Stroka, Stroka.priority);
 
      </script>
   </body>
