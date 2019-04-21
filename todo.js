@@ -35,6 +35,7 @@ return arr.priority === typeP
 });
 }
 //Два метода которые сортируют строки либо по приоритету, либо по дате
+//Их можно объединить в один, но так как у нас сортировка пока актуальна только по этим данным, я оставил так
 sortirovkaByP(arr){
  console.log( arr.sort(function (a, b) {
  if (a.priority > b.priority) {

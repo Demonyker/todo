@@ -46,6 +46,7 @@
        });
        }
        //Два метода которые сортируют строки либо по приоритету, либо по дате
+       //Их можно объединить в один, но так как у нас сортировка пока актуальна только по этим данным, я оставил так
        sortirovkaByP(arr){
         console.log( arr.sort(function (a, b) {
         if (a.priority > b.priority) {
@@ -91,7 +92,7 @@
            }
          });
        console.log(sum);
-       // пробовал двумя разными методами, оба либо выводят 0, либо undefinend 
+       // пробовал двумя разными методами, оба либо выводят 0, либо undefinend
        const sum = arr.reduce(function(sum, item){
          if (item === 'A'){
            return sum = sum + 1;
